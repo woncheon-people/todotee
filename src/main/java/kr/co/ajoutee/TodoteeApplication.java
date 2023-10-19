@@ -1,4 +1,4 @@
-package kr.co.ajoutee.todotee;
+package kr.co.ajoutee;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

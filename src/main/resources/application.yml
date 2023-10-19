@@ -1,0 +1,13 @@
+spring:
+  datasource:
+    url: jdbc:mariadb://localhost:3306/TodoDB
+    username: jju
+    password: 1234
+    driver-class-name: org.mariadb.jdbc.Driver
+  jpa:
+    generate-ddl : false
+
+    hibernate:
+      ddl-auto: update
+
+
