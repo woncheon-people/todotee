@@ -1,4 +1,4 @@
-package kr.co.ajoutee.domain;
+package kr.co.ajoutee.todotee.domain;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

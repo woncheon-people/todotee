@@ -1,6 +1,5 @@
-package kr.co.ajoutee.controller;
+package kr.co.ajoutee.todotee.controller;
 
-import kr.co.ajoutee.service.TodoService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.RequestMapping;

@@ -1,6 +1,6 @@
-package kr.co.ajoutee.service;
+package kr.co.ajoutee.todotee.service;
 
-import kr.co.ajoutee.repository.TodoJpaRepository;
+import kr.co.ajoutee.todotee.repository.TodoJpaRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
