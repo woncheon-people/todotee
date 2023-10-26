@@ -1,17 +1,14 @@
 package kr.co.ajoutee.domain;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
-import jakarta.validation.constraints.NotEmpty;
 import lombok.*;
 
-import java.util.Date;
+import java.time.LocalDateTime;
 
 @Entity
-@Data
+@Getter
 @NoArgsConstructor
-@AllArgsConstructor
-public class TodoEntity {
+public class TodoEntity extends BasicEntity{
 
     @Id
     @Column(name ="TODO_ID")
@@ -22,12 +19,32 @@ public class TodoEntity {
     @NonNull
     private String title;
 
-    @Column(nullable = false)
-    @JsonFormat(pattern = "yyyy-MM-dd'T'hh:mm:ss")
-    private Date updated;//등록일
 
-    @Column(nullable = false)
+    @Column(updatable = false)
     private Boolean completed;
+    @Column(updatable = false)
+    private LocalDateTime complete_at;
+
+    @Builder
+    public TodoEntity(String title, Boolean completed) {
+        this.title = title;
+        this.completed = completed;
+        setComplete_at();
+    }
+
+    public void setComplete_at() {
+        if (this.getCompleted() != null && this.getCompleted()) {
+            this.complete_at = LocalDateTime.now();
+        } else {
+            this.complete_at = null;
+        }
+    }
+
+    public void update(String title, Boolean completed) {
+        this.title = title;
+        this.completed = completed;
+        setComplete_at();
+    }
 
 
 }
