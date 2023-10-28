@@ -1,4 +1,4 @@
-package kr.co.ajoutee.domain;
+package kr.co.ajoutee.todotee.domain;
 
 import jakarta.persistence.*;
 import lombok.*;
@@ -20,11 +20,11 @@ public class TodoEntity extends BasicEntity{
     private String title;
 
 
-    @Column(updatable = false)
+    @Column()
     private Boolean completed;
 //    true false
 
-    @Column(updatable = false)
+    @Column()
     private LocalDateTime complete_at;
 
     @Builder
