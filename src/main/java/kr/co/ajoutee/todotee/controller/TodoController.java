@@ -1,18 +1,14 @@
-package kr.co.ajoutee.controller;
+package kr.co.ajoutee.todotee.controller;
 
 import jakarta.validation.Valid;
 import kr.co.ajoutee.domain.TodoEntity;
-import kr.co.ajoutee.dto.TodoRequestDto;
-import kr.co.ajoutee.dto.TodoResponseDto;
+import kr.co.ajoutee.todotee.dto.TodoRequestDto;
+import kr.co.ajoutee.todotee.dto.TodoResponseDto;
 import kr.co.ajoutee.service.TodoService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.util.ObjectUtils;
 import org.springframework.web.bind.annotation.*;
-import java.util.Date;
-import java.util.List;
-import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/")

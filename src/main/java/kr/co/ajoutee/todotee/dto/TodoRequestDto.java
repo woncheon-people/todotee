@@ -1,4 +1,4 @@
-package kr.co.ajoutee.dto;
+package kr.co.ajoutee.todotee.dto;
 
 
 import jakarta.validation.constraints.NotEmpty;
