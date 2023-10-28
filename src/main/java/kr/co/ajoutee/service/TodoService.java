@@ -34,20 +34,6 @@ public class TodoService {
     }
 
 
-    //    public TodoEntity updateById(Long id, TodoRequestDto request) {
-//        TodoEntity todoEntity = this.searchById(id);
-//        if (request.getTitle() != null) {
-//            todoEntity.setTitle(request.getTitle());
-//        }
-//        if (request.getCompleted() != null) {
-//            todoEntity.setCompleted(request.getCompleted());
-//        }
-//        if (request.getUpdated() != null) {
-//            todoEntity.setUpdated(request.getUpdated());
-//
-//        }
-//        return this.todoRepository.save(todoEntity);
-//    }
     @Transactional
     public void updateTodo(TodoEntity todo, String title, Boolean completed) {
         todo.update(title, completed);
@@ -59,7 +45,4 @@ public class TodoService {
         todoRepository.delete(todo);
     }
 
-    public void deleteById(Long id) {
-        this.todoRepository.deleteById(id);
-    }
 }

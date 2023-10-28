@@ -22,6 +22,8 @@ public class TodoEntity extends BasicEntity{
 
     @Column(updatable = false)
     private Boolean completed;
+//    true false
+
     @Column(updatable = false)
     private LocalDateTime complete_at;
 

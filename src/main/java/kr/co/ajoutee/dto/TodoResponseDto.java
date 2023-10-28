@@ -6,14 +6,12 @@ import kr.co.ajoutee.domain.TodoEntity;
 import lombok.*;
 
 import java.time.LocalDateTime;
-import java.time.LocalTime;
-import java.util.Date;
 
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class TodoResponseDto<T> {
+public class TodoResponseDto {
 
     private Long id;
     private String title;
