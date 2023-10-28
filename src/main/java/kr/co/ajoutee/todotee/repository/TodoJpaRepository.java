@@ -1,7 +1,13 @@
-package kr.co.ajoutee.todotee.repository;
+package kr.co.ajoutee.repository;
 
-import kr.co.ajoutee.todotee.domain.Todo;
+import kr.co.ajoutee.domain.TodoEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
-public interface TodoJpaRepository extends JpaRepository<Todo, Long> {
+import java.util.Optional;
+
+@Repository
+public interface TodoJpaRepository extends JpaRepository<TodoEntity, Long> {
+
+    Optional<TodoEntity> findById(Long id);
 }
