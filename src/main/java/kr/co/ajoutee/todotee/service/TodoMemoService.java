@@ -1,8 +1,6 @@
 package kr.co.ajoutee.todotee.service;
 
-import kr.co.ajoutee.todotee.domain.TodoEntity;
 import kr.co.ajoutee.todotee.domain.TodoMemo;
-import kr.co.ajoutee.todotee.repository.TodoJpaRepository;
 import kr.co.ajoutee.todotee.repository.TodoMemoJpaRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -15,34 +13,28 @@ import java.util.List;
 @Service
 @RequiredArgsConstructor
 @Transactional(readOnly = true)
-public class TodoService {
-    private final TodoJpaRepository todoRepository;
+public class TodoMemoService {
+
+    private final TodoMemoJpaRepository todoMemoRepository;
 
     @Transactional
-    public Long add(TodoEntity todo) {
-        todoRepository.save(todo);
+    public Long addMemo(TodoMemo todo){
+        todoMemoRepository.save(todo);
         return todo.getId();
     }
 
-    public List<TodoEntity> searchAll() {
-        return todoRepository.findAll();
-    }
+    public List<TodoMemo> searchAllMemo(){ return todoMemoRepository.findAll(); }
 
-    public TodoEntity searchById(Long id) {
-        return todoRepository.findById(id)
+    public TodoMemo searchMemoById(Long id){
+        return todoMemoRepository.findById(id)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
     }
 
     @Transactional
-    public void updateTodo(TodoEntity todo, String title, Boolean completed) {
-        todo.update(title, completed);
-    }
-
+    public void updateMemo(TodoMemo todo, String title,String memo, Boolean completed) { todo.update(title,memo,completed);}
 
     @Transactional
-    public void deleteTodo(TodoEntity todo) {
-
-        todoRepository.delete(todo);
+    public void deleteMemo(TodoMemo todo){
+        todoMemoRepository.delete(todo);
     }
-
 }
