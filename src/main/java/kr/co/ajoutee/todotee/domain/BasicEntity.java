@@ -1,4 +1,4 @@
-package kr.co.ajoutee.domain;
+package kr.co.ajoutee.todotee.domain;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.EntityListeners;

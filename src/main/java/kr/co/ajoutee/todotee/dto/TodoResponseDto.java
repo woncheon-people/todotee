@@ -2,7 +2,7 @@ package kr.co.ajoutee.todotee.dto;
 
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import kr.co.ajoutee.domain.TodoEntity;
+import kr.co.ajoutee.todotee.domain.TodoEntity;
 import lombok.*;
 
 import java.time.LocalDateTime;

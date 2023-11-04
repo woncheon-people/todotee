@@ -1,23 +1,29 @@
 package kr.co.ajoutee.todotee.domain;
 
 import jakarta.persistence.*;
-import lombok.*;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.NonNull;
 
 import java.time.LocalDateTime;
 
 @Entity
 @Getter
 @NoArgsConstructor
-public class TodoEntity extends BasicEntity {
+public class TodoMemo extends BasicEntity{
 
     @Id
-    @Column(name ="TODO_ID")
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     @Column(nullable = false)
     @NonNull
     private String title;
+
+    @Column(nullable = false)
+    @NonNull
+    private String memo;
 
     @Column(updatable = false)
     private Boolean completed;
@@ -27,8 +33,9 @@ public class TodoEntity extends BasicEntity {
     private LocalDateTime complete_at;
 
     @Builder
-    public TodoEntity(String title, Boolean completed) {
+    public TodoMemo(String title,String memo,Boolean completed) {
         this.title = title;
+        this.memo = memo;
         this.completed = completed;
         setComplete_at();
     }
@@ -41,11 +48,10 @@ public class TodoEntity extends BasicEntity {
         }
     }
 
-    public void update(String title, Boolean completed) {
+    public void update(String title,String memo,Boolean completed) {
         this.title = title;
+        this.memo = memo;
         this.completed = completed;
         setComplete_at();
     }
-
-
 }
