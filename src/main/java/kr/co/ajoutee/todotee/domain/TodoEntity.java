@@ -8,7 +8,7 @@ import java.time.LocalDateTime;
 @Entity
 @Getter
 @NoArgsConstructor
-public class TodoEntity extends BasicEntity {
+public class TodoEntity extends BasicEntity{
 
     @Id
     @Column(name ="TODO_ID")
@@ -19,11 +19,12 @@ public class TodoEntity extends BasicEntity {
     @NonNull
     private String title;
 
-    @Column(updatable = false)
+
+    @Column()
     private Boolean completed;
 //    true false
 
-    @Column(updatable = false)
+    @Column()
     private LocalDateTime complete_at;
 
     @Builder

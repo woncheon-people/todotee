@@ -1,9 +1,7 @@
 package kr.co.ajoutee.todotee.service;
 
 import kr.co.ajoutee.todotee.domain.TodoEntity;
-import kr.co.ajoutee.todotee.domain.TodoMemo;
 import kr.co.ajoutee.todotee.repository.TodoJpaRepository;
-import kr.co.ajoutee.todotee.repository.TodoMemoJpaRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
@@ -14,6 +12,7 @@ import java.util.List;
 
 @Service
 @RequiredArgsConstructor
+
 @Transactional(readOnly = true)
 public class TodoService {
     private final TodoJpaRepository todoRepository;
@@ -25,7 +24,8 @@ public class TodoService {
     }
 
     public List<TodoEntity> searchAll() {
-        return todoRepository.findAll();
+        return this.todoRepository.findAll();
+
     }
 
     public TodoEntity searchById(Long id) {
@@ -33,15 +33,15 @@ public class TodoService {
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
     }
 
+
     @Transactional
     public void updateTodo(TodoEntity todo, String title, Boolean completed) {
         todo.update(title, completed);
+        todoRepository.save(todo);
     }
-
 
     @Transactional
     public void deleteTodo(TodoEntity todo) {
-
         todoRepository.delete(todo);
     }
 

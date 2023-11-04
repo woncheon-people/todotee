@@ -19,7 +19,7 @@ public class TodoRequestDto {
     public TodoEntity toEntity() {
         return TodoEntity.builder()
                 .title(title)
-                .completed(true)
+                .completed(completed)
                 .build();
     }
 
