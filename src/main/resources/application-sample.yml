@@ -1,0 +1,13 @@
+# 해당 샘플 사용 시 복사 후 application.yml로 이름을 바꿔주세요.
+# 예시는 H2 Database 기준으로 되어있습니다.
+
+spring:
+  datasource:
+    url: jdbc:h2:tcp://localhost/~/todotee
+    username: sa
+    password:
+    driver-class-name: org.h2.Driver
+  jpa:
+    generate-ddl: false
+    hibernate:
+      ddl-auto: update
