@@ -1,10 +1,13 @@
 package kr.co.ajoutee.todotee.controller;
 
 import jakarta.validation.Valid;
-import kr.co.ajoutee.domain.TodoEntity;
+import kr.co.ajoutee.todotee.domain.TodoEntity;
+import kr.co.ajoutee.todotee.domain.TodoMemo;
 import kr.co.ajoutee.todotee.dto.TodoRequestDto;
+import kr.co.ajoutee.todotee.dto.TodoRequestMemoDto;
 import kr.co.ajoutee.todotee.dto.TodoResponseDto;
-import kr.co.ajoutee.service.TodoService;
+import kr.co.ajoutee.todotee.dto.TodoResponseMemoDto;
+import kr.co.ajoutee.todotee.service.TodoService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -14,8 +17,8 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/")
 @RequiredArgsConstructor
 public class TodoController {
-    private final TodoService todoService;
 
+    private final TodoService todoService;
 
     @PostMapping("")
     public ResponseEntity<TodoResponseDto> createTodo(@Valid @RequestBody TodoRequestDto todoRequestDto) {
@@ -24,7 +27,6 @@ public class TodoController {
         TodoResponseDto todoResponseDto = TodoResponseDto.of(todo);
         return new ResponseEntity<>(todoResponseDto, HttpStatus.CREATED);
     }
-
 
     @GetMapping("{id}")
     public ResponseEntity<TodoResponseDto> searchById(@PathVariable Long id) {
@@ -39,7 +41,6 @@ public class TodoController {
         todoService.updateTodo(result, todoRequestDto.getTitle(),todoRequestDto.getCompleted());
         TodoResponseDto todoResponseDto = TodoResponseDto.of(result);
         return new ResponseEntity<>(todoResponseDto, HttpStatus.OK);
-
     }
 
     @DeleteMapping("{id}")
@@ -48,5 +49,6 @@ public class TodoController {
         todoService.deleteTodo(result);
         return ResponseEntity.noContent().build();
     }
+
 
 }
