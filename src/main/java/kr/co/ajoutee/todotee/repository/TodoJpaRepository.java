@@ -1,6 +1,6 @@
-package kr.co.ajoutee.repository;
+package kr.co.ajoutee.todotee.repository;
 
-import kr.co.ajoutee.domain.TodoEntity;
+import kr.co.ajoutee.todotee.domain.TodoEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

@@ -2,7 +2,7 @@ package kr.co.ajoutee.todotee.dto;
 
 
 import jakarta.validation.constraints.NotEmpty;
-import kr.co.ajoutee.domain.TodoEntity;
+import kr.co.ajoutee.todotee.domain.TodoEntity;
 import lombok.*;
 
 import java.util.Date;
@@ -19,7 +19,7 @@ public class TodoRequestDto {
     public TodoEntity toEntity() {
         return TodoEntity.builder()
                 .title(title)
-                .completed(true)
+                .completed(completed)
                 .build();
     }
 

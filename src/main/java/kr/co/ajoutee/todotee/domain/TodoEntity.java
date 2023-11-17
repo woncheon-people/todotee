@@ -1,4 +1,4 @@
-package kr.co.ajoutee.domain;
+package kr.co.ajoutee.todotee.domain;
 
 import jakarta.persistence.*;
 import lombok.*;
@@ -15,16 +15,14 @@ public class TodoEntity extends BasicEntity{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false)
-    @NonNull
+    @Column()
     private String title;
 
 
-    @Column(updatable = false)
+    @Column()
     private Boolean completed;
-//    true false
 
-    @Column(updatable = false)
+    @Column()
     private LocalDateTime complete_at;
 
     @Builder
