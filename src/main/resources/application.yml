@@ -7,15 +7,27 @@ spring:
 
   jpa:
     hibernate:
-      ddl-auto: create
+      ddl-auto: update # SessionFactoryr가 시작될 때 Drop, Create, Alter 종료될 때 Drop
     properties:
       hibernate:
-        show_sql: true
+        globally_quoted_identifiers: true
         format_sql: true
-        default_batch_fetch_size: 100
+        show_sql: ture
+    defer-datasource-initialization: true
 
-logging.level:
-  org.hibernate.SQL: debug
-  org.hibernate.type: trace
+  logging:
+    level:
+      org.hibernate.SQL: debug
+      org.hibernate.type: trace
+
+jwt:
+  header: Authorization
+  secret: c2lsdmVybmluZS10ZWNoLXNwcmluZy1ib290LWp3dC10dXRvcmlhbC1zZWNyZXQtc2lsdmVybmluZS10ZWNoLXNwcmluZy1ib290LWp3dC10dXRvcmlhbC1zZWNyZXQK
+  token-validity-in-seconds: 86400
+
+
+
+
+
 
 

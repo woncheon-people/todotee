@@ -2,11 +2,8 @@ package kr.co.ajoutee.todotee.controller;
 
 import jakarta.validation.Valid;
 import kr.co.ajoutee.todotee.domain.TodoEntity;
-import kr.co.ajoutee.todotee.domain.TodoMemo;
 import kr.co.ajoutee.todotee.dto.TodoRequestDto;
-import kr.co.ajoutee.todotee.dto.TodoRequestMemoDto;
 import kr.co.ajoutee.todotee.dto.TodoResponseDto;
-import kr.co.ajoutee.todotee.dto.TodoResponseMemoDto;
 import kr.co.ajoutee.todotee.service.TodoService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;

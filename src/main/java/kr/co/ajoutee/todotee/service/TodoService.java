@@ -1,9 +1,7 @@
 package kr.co.ajoutee.todotee.service;
 
 import kr.co.ajoutee.todotee.domain.TodoEntity;
-import kr.co.ajoutee.todotee.domain.TodoMemo;
 import kr.co.ajoutee.todotee.repository.TodoJpaRepository;
-import kr.co.ajoutee.todotee.repository.TodoMemoJpaRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
