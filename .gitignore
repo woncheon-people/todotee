@@ -38,3 +38,5 @@ out/
 
 application.yml
 !application-sample.yml
+
+.DS_Store
