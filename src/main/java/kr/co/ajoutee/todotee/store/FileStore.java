@@ -12,11 +12,15 @@ import java.util.UUID;
 public class FileStore {
     @Value("${todotee.store.dir}")
     private String storeDirectory;
-    public String store(MultipartFile file) throws IOException {
+    public String store(MultipartFile file) {
         String filename = createFilename(file.getOriginalFilename());
-        String path = storeDirectory + "/" + filename;
-        file.transferTo(new File(path));
+        String destination = getDestination(filename);
+        uploadFile(file, destination);
         return filename;
+    }
+
+    private String getDestination(String filename) {
+        return storeDirectory + "/" + filename;
     }
 
     private String createFilename(String originalName) {
@@ -29,4 +33,12 @@ public class FileStore {
         int position = originalName.lastIndexOf('.');
         return originalName.substring(position + 1);
     }
+
+    private void uploadFile(MultipartFile file, String destination) {
+        FileUploadThread fileUploadThread = new FileUploadThread(file, destination);
+        Thread thread = new Thread(fileUploadThread);
+        thread.start();
+    }
+
+
 }
